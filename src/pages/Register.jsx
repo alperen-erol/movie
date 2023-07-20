@@ -1,72 +1,71 @@
 import GoogleIcon from "../assets/icons/GoogleIcon";
-
-
+import { Col, Button, Row, Container, Card, Form } from "react-bootstrap";
 const Register = () => {
- 
   return (
-    <div className="overflow-hidden flex-1 h-screen justify-center items-center bg-[#23242a]">
-      <div className={`form-container mt-[5vh] w-[380px] h-[580px]`}>
-        <form >
-          <h2 className="text-red-main text-2xl font-[500] text-center tracking-[0.1em] mb-3">
-            Sign Up
-          </h2>
-          <div className="relative z-0 w-full mb-6 group">
-            <input
-              type="text"
-              name="floating_text"
-              className="peer"
-              placeholder=" "
-              required
-              
-            />
-            <label htmlFor="floating_email">First Name</label>
-          </div>
-          <div className="relative z-0 w-full mb-6 group">
-            <input
-              name="floating_text"
-              type="text"
-              required
-              className="peer"
-              placeholder=" "
-             
-            />
-            <label htmlFor="floating_text">Last Name</label>
-          </div>
-          <div className="relative z-0 w-full mb-6 group">
-            <input
-              name="floating_email"
-              type="email"
-              className="peer"
-              placeholder=" "
-              required
-             
-            />
-            <label htmlFor="floating_email">Email</label>
-          </div>
-          <div className="relative z-0 w-full mb-6 group">
-            <input
-              name="floating_password"
-              type="password"
-              className="peer"
-              placeholder=" "
-              required
-              
-            />
-            <label htmlFor="floating_password">Password</label>
-          </div>
-          <button className="btn-danger" type="submit">
-            Register
-          </button>
-          <button
-            className="flex justify-between text-center btn-danger"
-            type="button"
-           
-          >
-            Continue with Google
-            <GoogleIcon color="currentColor" />
-          </button>
-        </form>
-      </div>
+    <div>
+      <Container>
+        <Row className="vh-100 d-flex justify-content-center align-items-center">
+          <Col md={8} lg={6} xs={12}>
+            <Card className="px-4">
+              <Card.Body>
+                <div className="mb-3 mt-md-4">
+                  <h2 className="fw-bold mb-2 text-center  ">Sign Up</h2>
+                  <div className="mb-3">
+                    <Form>
+                      <Form.Group className="mb-3" controlId="Name">
+                        <Form.Label className="text-center">Name</Form.Label>
+                        <Form.Control type="text" placeholder="Enter Name" />
+                      </Form.Group>
+
+                      <Form.Group className="mb-3" controlId="Name">
+                        <Form.Label className="text-center">
+                          Last Name
+                        </Form.Label>
+                        <Form.Control
+                          type="text"
+                          placeholder="Enter Last Name"
+                        />
+                      </Form.Group>
+                      <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Label className="text-center">
+                          Email address
+                        </Form.Label>
+                        <Form.Control type="email" placeholder="Enter email" />
+                      </Form.Group>
+
+                      <Form.Group
+                        className="mb-3"
+                        controlId="formBasicPassword"
+                      >
+                        <Form.Label>Password</Form.Label>
+                        <Form.Control type="password" placeholder="Password" />
+                      </Form.Group>
+                     
+                      <Form.Group
+                        className="mb-3"
+                        controlId="formBasicCheckbox"
+                      ></Form.Group>
+                      <div className="d-grid">
+                        <Button variant="primary" type="submit">
+                          Create Account
+                        </Button>
+                      </div>
+                    </Form>
+                    <div className="mt-3">
+                      <p className="mb-0  text-center">
+                        Already have an account??{" "}
+                        <a href="{''}" className="text-primary fw-bold">
+                          Sign In
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
+      </Container>
     </div>
   );
 };
