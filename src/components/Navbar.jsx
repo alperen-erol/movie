@@ -4,9 +4,14 @@ import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
+import { AuthContext } from "../context/AuthContext";
+import { useContext } from "react";
 
 const NavBar = () => {
-  const currentUser = { displayName: "alpi" };
+  const {currentUser,logOut} = useContext(AuthContext)
+  const handleLogout = ()=>{
+    logOut()
+  }
   return (
     <Navbar className="bg-body-tertiary">
       <Container>
@@ -18,7 +23,7 @@ const NavBar = () => {
               id="dropdown-button-dark-example1"
               variant="secondary"
             >
-              Dropdown Button
+              {currentUser.displayName}
             </Dropdown.Toggle>
 
             <Dropdown.Menu>
@@ -30,7 +35,7 @@ const NavBar = () => {
                 {" "}
                 <Link to="register">Register</Link>{" "}
               </Dropdown.Item>
-              <Dropdown.Item> Logout </Dropdown.Item>
+              <Dropdown.Item onClick={()=>handleLogout}> Logout </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
         </Navbar.Collapse>

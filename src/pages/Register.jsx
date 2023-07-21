@@ -1,6 +1,19 @@
+import { useContext, useState } from "react";
 import GoogleIcon from "../assets/icons/GoogleIcon";
 import { Col, Button, Row, Container, Card, Form } from "react-bootstrap";
+import { AuthContext } from "../context/AuthContext";
+import { Link } from "react-router-dom";
 const Register = () => {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const { createUser } = useContext(AuthContext);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    createUser(email, password);
+  };
+  console.log(firstName);
   return (
     <div>
       <Container>
@@ -11,10 +24,14 @@ const Register = () => {
                 <div className="mb-3 mt-md-4">
                   <h2 className="fw-bold mb-2 text-center  ">Sign Up</h2>
                   <div className="mb-3">
-                    <Form>
+                    <Form onSubmit={handleSubmit}>
                       <Form.Group className="mb-3" controlId="Name">
                         <Form.Label className="text-center">Name</Form.Label>
-                        <Form.Control type="text" placeholder="Enter Name" />
+                        <Form.Control
+                          type="text"
+                          placeholder="Enter Name"
+                          onChange={(e) => setFirstName(e.target.value)}
+                        />
                       </Form.Group>
 
                       <Form.Group className="mb-3" controlId="Name">
@@ -24,13 +41,18 @@ const Register = () => {
                         <Form.Control
                           type="text"
                           placeholder="Enter Last Name"
+                          onChange={(e) => setLastName(e.target.value)}
                         />
                       </Form.Group>
                       <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label className="text-center">
                           Email address
                         </Form.Label>
-                        <Form.Control type="email" placeholder="Enter email" />
+                        <Form.Control
+                          type="email"
+                          placeholder="Enter email"
+                          onChange={(e) => setEmail(e.target.value)}
+                        />
                       </Form.Group>
 
                       <Form.Group
@@ -38,25 +60,33 @@ const Register = () => {
                         controlId="formBasicPassword"
                       >
                         <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" placeholder="Password" />
+                        <Form.Control
+                          type="password"
+                          placeholder="Password"
+                          onChange={(e) => setPassword(e.target.value)}
+                        />
                       </Form.Group>
-                     
+
                       <Form.Group
                         className="mb-3"
                         controlId="formBasicCheckbox"
                       ></Form.Group>
                       <div className="d-grid">
-                        <Button variant="primary" type="submit">
+                        <Button
+                          variant="primary"
+                          type="submit"
+                          
+                        >
                           Create Account
                         </Button>
                       </div>
                     </Form>
                     <div className="mt-3">
                       <p className="mb-0  text-center">
-                        Already have an account??{" "}
-                        <a href="{''}" className="text-primary fw-bold">
-                          Sign In
-                        </a>
+                        Already have an account? 
+                        <Link to="/login" className="text-primary m-2 fw-bold">
+                           Sign In
+                        </Link>
                       </p>
                     </div>
                   </div>
