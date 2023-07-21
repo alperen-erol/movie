@@ -10,7 +10,8 @@ import { useContext } from "react";
 const NavBar = () => {
   const {currentUser,logOut} = useContext(AuthContext)
   const handleLogout = ()=>{
-    logOut()
+   logOut()
+    
   }
   return (
     <Navbar className="bg-body-tertiary">
@@ -35,7 +36,7 @@ const NavBar = () => {
                 {" "}
                 <Link to="register">Register</Link>{" "}
               </Dropdown.Item>
-              <Dropdown.Item onClick={()=>handleLogout}> Logout </Dropdown.Item>
+              <Dropdown.Item onClick={()=>handleLogout()}> Logout </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
         </Navbar.Collapse>

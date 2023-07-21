@@ -1,3 +1,4 @@
+import { ToastContainer } from "react-toastify";
 import Navbar from "./components/NavBar";
 import AuthContextProvider from "./context/AuthContext";
 import Register from "./pages/Register";
@@ -8,6 +9,7 @@ function App() {
     
       <AuthContextProvider>
         <AppRouter />  
+        <ToastContainer/>
       </AuthContextProvider>
     
   );

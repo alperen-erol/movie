@@ -1,17 +1,18 @@
 import { useContext, useState } from "react";
-import GoogleIcon from "../assets/icons/GoogleIcon";
 import { Col, Button, Row, Container, Card, Form } from "react-bootstrap";
 import { AuthContext } from "../context/AuthContext";
 import { Link } from "react-router-dom";
+import icon from "../assets/icons/google.svg";
 const Register = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { createUser } = useContext(AuthContext);
+  const { createUser, signUpProvider } = useContext(AuthContext);
   const handleSubmit = (e) => {
     e.preventDefault();
-    createUser(email, password);
+    const displayName = `${firstName} ${lastName}`;
+    createUser(email, password, displayName);
   };
   console.log(firstName);
   return (
@@ -30,6 +31,7 @@ const Register = () => {
                         <Form.Control
                           type="text"
                           placeholder="Enter Name"
+                          className=" text-capitalize"
                           onChange={(e) => setFirstName(e.target.value)}
                         />
                       </Form.Group>
@@ -41,6 +43,7 @@ const Register = () => {
                         <Form.Control
                           type="text"
                           placeholder="Enter Last Name"
+                          className=" text-capitalize"
                           onChange={(e) => setLastName(e.target.value)}
                         />
                       </Form.Group>
@@ -72,20 +75,28 @@ const Register = () => {
                         controlId="formBasicCheckbox"
                       ></Form.Group>
                       <div className="d-grid">
-                        <Button
-                          variant="primary"
-                          type="submit"
-                          
-                        >
+                        <Button variant="primary" type="submit">
                           Create Account
+                        </Button>
+                      </div>
+                      <div className="mt-4 d-grid">
+                        <Button
+                          variant="secondary"
+                          className=" d-flex  justify-content-center align-items-center p-3"
+                        onClick={()=>signUpProvider()}
+                        >
+                          Continue With Google
+                          <div className="mr-4 w-25">
+                            <img src={icon} alt="googleIcon" className="" />
+                          </div>
                         </Button>
                       </div>
                     </Form>
                     <div className="mt-3">
                       <p className="mb-0  text-center">
-                        Already have an account? 
+                        Already have an account?
                         <Link to="/login" className="text-primary m-2 fw-bold">
-                           Sign In
+                          Sign In
                         </Link>
                       </p>
                     </div>

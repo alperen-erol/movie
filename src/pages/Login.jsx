@@ -2,10 +2,11 @@ import React, { useContext, useState } from "react";
 import { Col, Button, Row, Container, Card, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
+import icon from "../assets/icons/google.svg";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { signIn } = useContext(AuthContext);
+  const { signIn, signUpProvider } = useContext(AuthContext);
   const handleSubmit = (e) => {
     e.preventDefault();
     signIn(email, password);
@@ -25,7 +26,11 @@ const Login = () => {
                         <Form.Label className="text-center">
                           Email address
                         </Form.Label>
-                        <Form.Control type="email" placeholder="Enter email" onChange={(e) => setEmail(e.target.value)}/>
+                        <Form.Control
+                          type="email"
+                          placeholder="Enter email"
+                          onChange={(e) => setEmail(e.target.value)}
+                        />
                       </Form.Group>
 
                       <Form.Group
@@ -51,6 +56,18 @@ const Login = () => {
                       <div className="d-grid">
                         <Button variant="primary" type="submit">
                           Sign In
+                        </Button>
+                      </div>
+                      <div className="mt-4 d-grid">
+                        <Button
+                          variant="secondary"
+                          className=" d-flex  justify-content-center align-items-center p-3"
+                          onClick={() => signUpProvider()}
+                        >
+                          Continue With Google
+                          <div className="mr-4 w-25">
+                            <img src={icon} alt="googleIcon" className="" />
+                          </div>
                         </Button>
                       </div>
                     </Form>
