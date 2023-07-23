@@ -16,7 +16,7 @@ const NavBar = () => {
   return (
     <Navbar className="bg-body-tertiary">
       <Container>
-        <Navbar.Brand href="#home">Movie App</Navbar.Brand>
+        <Navbar.Brand ><Link className=" text-decoration-none" to="/">Movie App</Link></Navbar.Brand>
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
           <Dropdown data-bs-theme="dark">
@@ -31,11 +31,11 @@ const NavBar = () => {
             <Dropdown.Menu>
               <Dropdown.Item>
                 {" "}
-                <Link to="login">Login</Link>{" "}
+                <Link className=" text-decoration-none" to="login">Login</Link>{" "}
               </Dropdown.Item>
               <Dropdown.Item>
                 {" "}
-                <Link to="register">Register</Link>{" "}
+                <Link className=" text-decoration-none" to="register">Register</Link>{" "}
               </Dropdown.Item>
               <Dropdown.Item onClick={()=>handleLogout()}> Logout </Dropdown.Item>
             </Dropdown.Menu>

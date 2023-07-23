@@ -86,7 +86,7 @@ const Register = () => {
                         onClick={()=>signUpProvider()}
                         >
                           Continue With Google
-                          <div className="mr-4 w-25">
+                          <div className="icondiv">
                             <img src={icon} alt="googleIcon" className="" />
                           </div>
                         </Button>
