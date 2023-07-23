@@ -23,6 +23,7 @@ const NavBar = () => {
             <Dropdown.Toggle
               id="dropdown-button-dark-example1"
               variant="secondary"
+              className=" text-capitalize"
             >
               {currentUser.displayName}
             </Dropdown.Toggle>
