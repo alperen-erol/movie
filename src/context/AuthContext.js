@@ -30,7 +30,7 @@ const AuthContextProvider = ({ children }) => {
       await updateProfile(auth.currentUser, {
         displayName: displayName,
       });
-      navigate("/");
+      navigate("/login");
       toastSuccessNotify("Registration Successful");
     } catch (error) {
       toastErrorNotify(error.message);

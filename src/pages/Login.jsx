@@ -8,7 +8,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const { signIn, signUpProvider } = useContext(AuthContext);
   const handleSubmit = (e) => {
-    e.preventDefault();
+    
     signIn(email, password);
   };
   return (

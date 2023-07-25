@@ -1,8 +1,11 @@
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-
+import { useNavigate } from "react-router-dom";
 const IMG_API = "https://image.tmdb.org/t/p/w1280";
 const MovieCard = ({ title, poster_path, overview, vote_average, id }) => {
+  const defaultImage =
+    "https://images.unsplash.com/photo-1581905764498-f1b60bae941a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80";
+const navigate = useNavigate()
   const getVoteClass = (vote) => {
     if (vote >= 8) {
       return "green";
@@ -21,17 +24,19 @@ const MovieCard = ({ title, poster_path, overview, vote_average, id }) => {
         </div>
         <img
           className="moviecard-image"
-          src={IMG_API + poster_path}
+          src={poster_path ? IMG_API + poster_path : defaultImage}
           alt="movie-image"
         />
         <div className="moviecard-body">
           <h4 className="moviecard-title">{title} </h4>
-            <div className="votecontainer">
-              <span className={`tag ${getVoteClass(vote_average)}`}>
-                {vote_average.toFixed(1)}
-              </span>
-            </div>
-          
+          <div className="votecontainer">
+            <button onClick={() => navigate("/details/" + id)}>
+              See Details
+            </button>
+            <span className={`tag ${getVoteClass(vote_average)}`}>
+              {vote_average.toFixed(1)}
+            </span>
+          </div>
         </div>
       </div>
     </>
