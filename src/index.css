@@ -158,7 +158,8 @@ body {
   cursor: pointer;
   outline: inherit;
 }
-@media only screen and (max-width: 600px) {
+
+@media only screen and (max-width: 900px) {
   .moviecard-container {
     width: 300px;
   }
@@ -177,5 +178,8 @@ body {
   
   .moviecard-overview {
     font-size: 18px;
+  }
+  .dropdownmenu{
+    margin-right: 100px;
   }
 }
