@@ -38,7 +38,7 @@ const MovieDetail = () => {
     <>
       <div className="moviecard-container-detail">
         <img
-          className="moviecard-image"
+          className="moviecard-image-detail"
           src={poster_path ? IMG_API + poster_path : defaultImage}
           alt="movie-image"
         />

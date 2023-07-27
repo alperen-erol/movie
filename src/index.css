@@ -31,6 +31,9 @@ body {
 .moviecard-image {
   max-width: 350px;
 }
+.moviecard-image-detail {
+  max-width: 350px;
+}
 .moviecard-body {
   position: relative;
   text-align: center;
@@ -159,9 +162,19 @@ body {
   .moviecard-container {
     width: 300px;
   }
+  .moviecard-container-detail {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .overview-container-detail {
+    width: 350px;
+  }
   .moviecard-image {
     width: 300px;
   }
+  
   .moviecard-overview {
     font-size: 18px;
   }
