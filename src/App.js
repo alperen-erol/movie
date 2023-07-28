@@ -1,5 +1,5 @@
 import { ToastContainer } from "react-toastify";
-import Navbar from "./components/NavBar";
+import Navbar from "./components/NavigationBar";
 import AuthContextProvider from "./context/AuthContext";
 import Register from "./pages/Register";
 import AppRouter from "./router/AppRouter";
