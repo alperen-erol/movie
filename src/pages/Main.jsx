@@ -10,19 +10,13 @@ import { AuthContext } from "../context/AuthContext";
 const API_KEY = process.env.REACT_APP_TMDB_KEY;
 const SEARCH_API = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=`;
 const Main = () => {
-  const { movies, loading,getMovies } = useContext(MovieContext);
+  const { movies, loading, getMovies } = useContext(MovieContext);
   const { currentUser } = useContext(AuthContext);
   const [searchTerm, setSearchTerm] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (currentUser && searchTerm) {
-      getMovies(SEARCH_API + searchTerm);
-    } else if (!currentUser) {
-      toastWarnNotify("please log in to search a movie");
-      Navigate("/login");
-    } else {
-      toastWarnNotify("please enter a text");
-    }
+
+    getMovies(SEARCH_API + searchTerm);
   };
   return (
     <>
@@ -33,7 +27,9 @@ const Main = () => {
           placeholder="Type to Search..."
           onChange={(e) => setSearchTerm(e.target.value)}
         />
-        <button className="icon" type="submit"><FontAwesomeIcon icon={faMagnifyingGlass}  /></button>
+        <button className="icon" type="submit">
+          <FontAwesomeIcon icon={faMagnifyingGlass} />
+        </button>
       </form>
 
       <div className=" d-flex  justify-content-center flex-wrap">

@@ -1,9 +1,8 @@
 import { Link } from "react-router-dom";
-import avatar from "../assets/icons/avatar.png";
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 import Dropdown from "react-bootstrap/Dropdown";
-import DropdownButton from "react-bootstrap/DropdownButton";
+
 import { AuthContext } from "../context/AuthContext";
 import { useContext } from "react";
 
