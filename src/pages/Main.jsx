@@ -32,7 +32,8 @@ const Main = () => {
         </button>
       </form>
 
-      <div className=" d-flex  justify-content-center flex-wrap">
+      <div className=" d-flex  justify-content-center flex-wrap maincontainer" >
+        
         {loading ? (
           <div class="d-flex justify-content-center">
             <div class="spinner-border" role="status">
