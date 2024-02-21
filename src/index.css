@@ -50,7 +50,7 @@ body {
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
-  max-width: 550px;
+  max-width: 700px;
   height: 525px;
   background-color: rgba(32, 32, 32, 0.8);
 }
@@ -85,7 +85,7 @@ body {
 .overview-container-detail {
   padding: 20px;
   background-color: rgba(32, 32, 32, 0.8);
-  max-width: 500px;
+  max-width: 900px;
 }
 .moviecard-container:hover .overview-container {
   transform: translateX(0%);

@@ -1,6 +1,8 @@
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
+import { useContext } from "react";
 const IMG_API = "https://image.tmdb.org/t/p/w1280";
 const MovieCard = ({ title, poster_path, overview, vote_average, id }) => {
   const defaultImage =
@@ -15,6 +17,20 @@ const navigate = useNavigate()
       return "red";
     }
   };
+  
+  const { currentUser } = useContext(AuthContext);
+
+// Before I wrote the function below, the user would go to the details tab no matter the login status, which caused a loop that the user could not get out of. Now the status is checked before directing the user to the details tab.
+
+  let detailnavigate =()=>{
+    if (currentUser){
+      navigate("/details/" + id)
+    }
+    else{
+      navigate("/login/")
+    }
+  }
+
   return (
     <>
       <div className="moviecard-container">
@@ -30,7 +46,7 @@ const navigate = useNavigate()
         <div className="moviecard-body">
           <h4 className="moviecard-title">{title} </h4>
           <div className="votecontainer">
-            <button onClick={() => navigate("/details/" + id)}>
+            <button onClick={detailnavigate}>
               See Details
             </button>
             <span className={`tag ${getVoteClass(vote_average)}`}>
