@@ -12,7 +12,7 @@ const Login = () => {
     signIn(email, password);
   };
   return (
-    <div>
+    <div className="logincontainer">
       <Container>
         <Row className="vh-100 d-flex justify-content-center align-items-center">
           <Col md={8} lg={6} xs={12}>
