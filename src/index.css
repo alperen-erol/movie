@@ -98,6 +98,9 @@
   transform: translateX(0%);
   opacity: 100%;
 }
+.moviecard-container:hover{
+  opacity: 90%;
+}
 .votecontainer {
   width: 100%;
   display: flex;
@@ -138,8 +141,7 @@
 .search-container {
   text-align: center;
   background-color: #025951;
-  padding: 15px;
-  
+  padding-top: 120px;
 }
 .search {
   text-indent: 10px;
@@ -150,6 +152,7 @@
 }
 
 .search:focus {
+  border: 2px solid rgb(71, 71, 71);
 }
 .icon {
   position: absolute;
