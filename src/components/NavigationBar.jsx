@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import { useContext } from "react";
-
+import { toastSuccessNotify } from "../helpers/ToastNotify";
 const NavBar = () => {
   const { currentUser, logOut } = useContext(AuthContext);
   const handleLogout = () => {
     logOut();
-    window.location.reload();
+    toastSuccessNotify("Succesfully Logged Off");
   };
   return (
     <>
