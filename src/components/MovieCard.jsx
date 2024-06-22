@@ -7,7 +7,7 @@ const IMG_API = "https://image.tmdb.org/t/p/w1280";
 const MovieCard = ({ title, poster_path, overview, vote_average, id }) => {
   const defaultImage =
     "https://images.unsplash.com/photo-1581905764498-f1b60bae941a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80";
-const navigate = useNavigate()
+  const navigate = useNavigate();
   const getVoteClass = (vote) => {
     if (vote >= 8) {
       return "green";
@@ -17,19 +17,18 @@ const navigate = useNavigate()
       return "red";
     }
   };
-  
+
   const { currentUser } = useContext(AuthContext);
 
-// Before I wrote the function below, the user would go to the details tab no matter the login status, which caused a loop that the user could not get out of. Now the status is checked before directing the user to the details tab.
+  // Before I wrote the function below, the user would go to the details tab no matter the login status, which caused a loop that the user could not get out of. Now the status is checked before directing the user to the details tab.
 
-  let detailnavigate =()=>{
-    if (currentUser){
-      navigate("/details/" + id)
+  let detailnavigate = () => {
+    if (currentUser) {
+      navigate("/details/" + id);
+    } else {
+      navigate("/login/");
     }
-    else{
-      navigate("/login/")
-    }
-  }
+  };
 
   return (
     <>
@@ -46,9 +45,7 @@ const navigate = useNavigate()
         <div className="moviecard-body">
           <h4 className="moviecard-title">{title} </h4>
           <div className="votecontainer">
-            <button onClick={detailnavigate}>
-              See Details
-            </button>
+            <button onClick={detailnavigate}>See Details</button>
             <span className={`tag ${getVoteClass(vote_average)}`}>
               {vote_average.toFixed(1)}
             </span>
